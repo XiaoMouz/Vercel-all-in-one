@@ -25,6 +25,7 @@ export const getPublishPosts = async () => {
     .select({
       cid: ContentTable.cid,
       slug: ContentTable.slug,
+      headImage: ContentTable.headImage,
       title: ContentTable.title,
       views: ContentTable.views,
       stars: ContentTable.stars,

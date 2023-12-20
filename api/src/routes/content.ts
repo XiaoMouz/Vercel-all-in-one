@@ -4,27 +4,9 @@ import {
   getPostBySlug,
   getPublishPosts,
 } from "../db/repository/post.repository.js";
+import { ContentTableData } from "../db/entities/content.entity.js";
 
 const router = express.Router();
-
-interface ContentTableData {
-  cid: number;
-  slug: string | null;
-  title: string | null;
-  headImage: string | null;
-  createTime: number | null;
-  modifyTime: number | null;
-  text: string | null;
-  authorId: number | null;
-  type: string | null;
-  status: string | null;
-  password: string | null;
-  allowComment: boolean | null;
-  parent: number | null;
-  commentsNum: number | null;
-  views: number | null;
-  stars: number | null;
-}
 
 router.get("/post", (req: Request, res: Response) => {
   getPublishPosts()
@@ -58,9 +40,14 @@ router.get("/post/:slug", (req: Request, res: Response) => {
           message: "post not found",
         });
       } else {
-        let data: any = { ...post[0] };
+        // delete password field
+        let data: ContentTableData = { ...post[0] };
         delete data.password;
-        JSON.stringify;
+        /**
+         * bigint is not supported by JSON.stringify
+         * https://github.com/prisma/prisma/discussions/5737#discussioncomment-383291
+         */
+
         res.status(200).json({
           code: 200,
           data,
