@@ -1,19 +1,14 @@
-import { Request, Response } from 'express';
-import express from 'express';
-import { v4 } from 'uuid';
+import { Request, Response } from "express";
+import express from "express";
+import { v4 } from "uuid";
+import * as ContentRouter from "./routes/content.js";
 
 const app = express();
 
-app.get('/api', (req: Request, res: Response) => {
-    const path = `/api/item/${v4()}`;
-    res.setHeader('Content-Type', 'text/html');
-    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-    res.end(`Hello! Go to item: <a href="${path}">${path}</a>`);
+app.get("/api", (req: Request, res: Response) => {
+  // show all routes
 });
 
-app.get('/api/item/:slug', (req: Request, res: Response) => {
-    const { slug } = req.params;
-    res.end(`Item: ${slug}`);
-});
+app.use("/api/content", ContentRouter.default);
 
 export default app;
