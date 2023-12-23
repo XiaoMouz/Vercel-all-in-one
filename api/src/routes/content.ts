@@ -40,16 +40,18 @@ router.get("/post/:slug", (req: Request, res: Response) => {
           message: "post not found",
         });
       } else {
+        let lock: boolean = false;
         // delete password field
         let data: ContentTableData = { ...post[0] };
+        if (data.password != null) {
+          delete data.text;
+          lock = true;
+        }
         delete data.password;
-        /**
-         * bigint is not supported by JSON.stringify
-         * https://github.com/prisma/prisma/discussions/5737#discussioncomment-383291
-         */
 
         res.status(200).json({
           code: 200,
+          lock: lock,
           data,
         });
       }

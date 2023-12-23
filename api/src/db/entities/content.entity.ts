@@ -36,7 +36,7 @@ export interface ContentTableData {
   headImage: string | null;
   createTime: number | null;
   modifyTime: number | null;
-  text: string | null;
+  text?: string | null;
   authorId: number | null;
   type: string | null;
   status: string | null;
