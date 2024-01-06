@@ -1,6 +1,8 @@
-
 <template>
-  <div font-sans>
+  <NuxtLayout>
     <NuxtPage />
-  </div>
+  </NuxtLayout>
 </template>
+<style>
+@import url('./assets/base.css');
+</style>

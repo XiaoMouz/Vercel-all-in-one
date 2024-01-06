@@ -1,7 +1,8 @@
 import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { sql } from '@vercel/postgres';
 import { ContentTable } from '../entities/content.entity.js';
-import { and, eq } from 'drizzle-orm';
+import { and, eq, desc } from 'drizzle-orm';
+import post from '~/server/api/blog/post';
 
 // Use this object to send drizzle queries to your DB
 export const db = drizzle(sql);
@@ -34,5 +35,6 @@ export const getPublishPosts = async () => {
     .from(ContentTable)
     .where(
       and(eq(ContentTable.type, 'post'), eq(ContentTable.status, 'publish'))
-    );
+    )
+    .orderBy(desc(ContentTable.createTime));
 };
