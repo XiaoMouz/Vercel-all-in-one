@@ -1,1 +1,2 @@
-<template>This is Header</template>
+<template>nothing</template>
+<style scoped></style>

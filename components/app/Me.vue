@@ -40,7 +40,7 @@ defineProps<{
 .about-me-card {
   max-width: 21.25rem;
   border-radius: 16px;
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   overflow: hidden;
   display: flex;
@@ -92,17 +92,18 @@ defineProps<{
 .name {
   font-size: 1.5rem;
   margin: 0;
+  color: #fff;
 }
 
 .title {
   font-size: 1.125rem;
-  color: #666;
+  color: #9e9e9e;
   margin: 4px 0;
 }
 
 .description {
   font-size: 0.785rem;
-  color: #333;
+  color: #93b1be;
   margin-top: 8px;
 }
 

@@ -16,7 +16,7 @@ function y_scroll(event: WheelEvent) {
 </script>
 
 <template>
-  <div>
+  <div class="dance">
     <!-- v for data-->
     <div flex flex-row flex-gap-6 class="list" @wheel="y_scroll">
       <!-- get list and for each data's title -->
@@ -41,15 +41,15 @@ function y_scroll(event: WheelEvent) {
   overflow-x: visible;
   overflow-y: hidden;
   gap: 16px; /* or use margin if gap is not supported */
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
   padding: 8px;
-  background: #f5f5f5;
 }
 .list::-webkit-scrollbar {
   display: none;
 }
 
 .item {
-  background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s ease;

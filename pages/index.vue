@@ -1,32 +1,60 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+definePageMeta({
+  layout: 'board',
+});
+</script>
 
 <template>
-  <div class="main">
-    <div class="controller">
-      <div class="card">
-        <p>Hello</p>
-        <AppMe
-          :avatar="'https://gitee.com/xiaomouz/xiaomouz/raw/master/upload/images/b1bfc9aeb2cfd.jpg'"
-          :name="'XiaoMouz'"
-          :title="'Foolish'"
-          :description="'Like some stupid guy'"
-          :social-links="[]"
-        />
-      </div>
-      <div flex flex-col>
-        <h1>Post List</h1>
-        <PostList />
+  <div bg-gray w-full h-full>
+    <div h-100vh class="main">
+      <div flex flex-row class="controller">
+        <div mb-auto class="card">
+          <AppMe
+            :avatar="'https://avatars.githubusercontent.com/u/54032212'"
+            :name="'XiaoMouz'"
+            :title="'Foolish'"
+            :description="'Like some stupid guy'"
+            :social-links="[]"
+          />
+        </div>
+        <div flex flex-col class="blog-list">
+          <PostList />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.controller {
-  width: 100%;
+body,
+html {
   height: 100%;
-  display: grid;
-  grid-template-columns: 40% 60%;
-  grid-template-rows: 100% 100%;
+  margin: 0;
+}
+
+.controller {
+  display: flex;
+  flex-direction: column;
+  width: 80%; /* adjust as needed */
+  height: 80%; /* adjust as needed */
+
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.me-card,
+.post-list {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-list {
+  max-width: 100%;
 }
 </style>
