@@ -5,8 +5,8 @@ definePageMeta({
 </script>
 
 <template>
-  <div bg-gray w-full h-full>
-    <div h-100vh class="main">
+  <div h-full>
+    <div h-100vh h-full bg-gray class="main">
       <div flex flex-row class="controller">
         <div mb-auto class="card">
           <AppMe
@@ -17,7 +17,7 @@ definePageMeta({
             :social-links="[]"
           />
         </div>
-        <div flex flex-col class="blog-list">
+        <div mt-auto flex flex-col class="blog-list">
           <PostList />
         </div>
       </div>

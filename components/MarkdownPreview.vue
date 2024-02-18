@@ -15,10 +15,17 @@ if (props.content != null) {
 </script>
 
 <template>
-  <div v-html="htmlContent"></div>
+  <div v-html="htmlContent" style=""></div>
 </template>
 <style scoped>
 .markdown-preview {
   width: 70dvw;
+}
+</style>
+<style>
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem 0;
 }
 </style>
