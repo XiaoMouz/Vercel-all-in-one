@@ -28,7 +28,7 @@ if (data.value) {
 
 <template>
   <div class="container">
-    <article class="blog-post" v-if="data && data.data">
+    <article class="blog-post" v-if="data && data?.data">
       <div
         :style="{ backgroundImage: 'url(' + data.data.content.headImage + ')' }"
         class="header-image"
@@ -38,8 +38,8 @@ if (data.value) {
         class="content"
         v-if="!data.data.content.password && data.data.content.text"
         :content="data.data.content.text"
-        >Loading...</MarkdownPreviewVue
-      >
+        >Loading...
+      </MarkdownPreviewVue>
       <div class="end" />
     </article>
   </div>
@@ -47,12 +47,7 @@ if (data.value) {
 
 <style scoped>
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  min-width: 100vw;
-  background-color: rgb(87, 87, 87);
+  margin: 0 auto;
 }
 
 .blog-post {
@@ -63,6 +58,7 @@ if (data.value) {
   padding: 20px;
   box-sizing: border-box;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: auto;
 }
 
 .blog-post .header-image {

@@ -4,5 +4,5 @@
   </NuxtLayout>
 </template>
 <style>
-@import url('./assets/base.css');
+@import url('./assets/main.css');
 </style>

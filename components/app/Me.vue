@@ -47,7 +47,6 @@ defineProps<{
   flex-direction: column;
   align-items: center;
   padding: 16px;
-  font-family: 'Roboto', sans-serif;
 }
 
 .card-header {
