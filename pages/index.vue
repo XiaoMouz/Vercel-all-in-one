@@ -7,11 +7,14 @@ definePageMeta({
 <template>
   <div h-100dvh>
     <main mx-auto h-full grid place-items-center>
-      <div>
+      <div p-6 rd-6 flex justify-center flex-warp class="secondary-container">
+        <div>
+          <Nowplaying v-if="false" />
+        </div>
         <div>
           <div>
             <section>
-              <span font-size-8 class="on-primary-container-text">
+              <span font-size-8 class="primary-text">
                 Hi, I&apos;m
                 <span font-bold
                   >Xia&#770;oMo&#768;uz<span font-normal font-size-5
@@ -20,7 +23,7 @@ definePageMeta({
                 >&nbsp;👋
               </span>
               <div>
-                <WatchDogAnimate />
+                <WatchdogsLoadingWriter />
               </div>
             </section>
           </div>

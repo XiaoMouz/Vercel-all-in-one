@@ -4,4 +4,4 @@
     <div inline aria-hidden="true">&nbsp;</div>
   </section>
 </template>
-<style></style>
+<style scoped></style>
