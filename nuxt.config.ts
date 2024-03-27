@@ -2,4 +2,10 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@unocss/nuxt'],
+
+  routerRules: {
+    '/api/**': { cors: true },
+    '/post/**': { ssr: false },
+    '/': { ssr: false },
+  },
 });

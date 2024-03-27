@@ -5,56 +5,74 @@ definePageMeta({
 </script>
 
 <template>
-  <div h-full>
-    <div h-100vh h-full bg-gray class="main">
-      <div flex flex-row class="controller">
-        <div mb-auto class="card">
-          <AppMe
-            :avatar="'https://avatars.githubusercontent.com/u/54032212'"
-            :name="'XiaoMouz'"
-            :title="'Foolish'"
-            :description="'Like some stupid guy'"
-            :social-links="[]"
-          />
-        </div>
-        <div mt-auto flex flex-col class="blog-list">
-          <PostList />
+  <div h-100dvh>
+    <main mx-auto h-full grid place-items-center>
+      <div>
+        <div>
+          <div>
+            <section>
+              <span font-size-8 class="on-primary-container-text">
+                Hi, I&apos;m
+                <span font-bold
+                  >Xia&#770;oMo&#768;uz<span font-normal font-size-5
+                    >(i)</span
+                  ></span
+                >&nbsp;👋
+              </span>
+              <div>
+                <WatchDogAnimate />
+              </div>
+            </section>
+          </div>
+          <section mt-6 flex items-center justify-center gap-4>
+            <a class="button" href="https://x.com/XiaoMouz"
+              ><IconTwitter class="primary-fill button-icon"
+            /></a>
+            <a class="button" href="https://github.com/XiaoMouz">
+              <IconGithub class="primary-fill button-icon" />
+            </a>
+            <a class="button" target="_blank" href="https://t.me/XiaoMouz"
+              ><IconPaperPlane class="primary-fill button-icon" />
+            </a>
+            <a class="button" target="_blank" href="mailto:gxiaomouz@gmail.com"
+              ><IconGmail class="primary-fill button-icon"
+            /></a>
+            <a
+              class="button"
+              target="_blank"
+              href="https://m.mou.best/@XiaoMouz"
+            >
+              <IconMastodon class="primary-fill button-icon" />
+            </a>
+            <a
+              class="button"
+              target="_blank"
+              href="https://space.bilibili.com/64110204"
+            >
+              <IconBilibili class="primary-fill button-icon" />
+            </a>
+          </section>
         </div>
       </div>
-    </div>
+    </main>
   </div>
 </template>
 
 <style scoped>
-body,
-html {
-  height: 100%;
-  margin: 0;
+.button-icon {
+  @apply mt-1 align-middle size-5;
+}
+.button {
+  @apply rd-2 block size-8 text-center;
+  transition-duration: 0.2s;
 }
 
-.controller {
-  display: flex;
-  flex-direction: column;
-  width: 80%; /* adjust as needed */
-  height: 80%; /* adjust as needed */
-
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+.button:hover {
+  @apply bg-black bg-op-20;
 }
-
-.me-card,
-.post-list {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.post-list {
-  max-width: 100%;
+@media (prefers-color-scheme: dark) {
+  .button:hover {
+    @apply bg-white bg-op-20;
+  }
 }
 </style>

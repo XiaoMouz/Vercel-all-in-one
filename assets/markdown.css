@@ -1,9 +1,0 @@
-.markdown-preview p > img {
-    max-width: 50%;
-    max-height: min-content;
-  }
-
-[href="#"] {
-  color: #007bff;
-  text-decoration: none;
-}

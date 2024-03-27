@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MarkdownPreviewVue from '@/components/MarkdownPreview.vue';
+import MarkdownViewer from '~/components/content/MarkdownViewer.vue';
 import { useRoute } from 'vue-router';
 import type { ContentTableData } from '~/server/db/entities/content.entity';
 import type { ResponseModel } from '~/server/model/ResponseModel';
@@ -28,20 +28,22 @@ if (data.value) {
 
 <template>
   <div class="container">
-    <article class="blog-post" v-if="data && data?.data">
-      <div
-        :style="{ backgroundImage: 'url(' + data.data.content.headImage + ')' }"
-        class="header-image"
-      ></div>
-      <h1 class="title">{{ data.data.content.title }}</h1>
-      <MarkdownPreviewVue
-        class="content"
-        v-if="!data.data.content.password && data.data.content.text"
-        :content="data.data.content.text"
-        >Loading...
-      </MarkdownPreviewVue>
-      <div class="end" />
-    </article>
+    <!-- loading show loading, done show content vif handle-->
+    <div v-if="pending">loading...</div>
+    <div v-else-if="error">error</div>
+    <div v-else>
+      <article class="blog-post" v-if="data && data?.data">
+        <div
+          :style="{
+            backgroundImage: 'url(' + data.data.content.headImage + ')',
+          }"
+          class="header-image"
+        ></div>
+        <h1 class="title">{{ data.data.content.title }}</h1>
+        <!-- <MarkdownViewer :content="data?.data.content.content" /> -->
+        <div class="end" />
+      </article>
+    </div>
   </div>
 </template>
 
@@ -82,5 +84,13 @@ if (data.value) {
 
 .blog-post .content {
   color: white;
+}
+
+.post-content > img {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem 0;
+  max-width: 50%;
+  max-height: min-content;
 }
 </style>

@@ -1,7 +1,27 @@
+<script setup lang="ts">
+defineProps<{
+  avatar: string;
+  name: string;
+  title: string;
+  description: string;
+  socialLinks: {
+    name: string;
+    url: string;
+    icon: string;
+  }[];
+}>();
+</script>
+
 <template>
   <div class="about-me-card">
     <div class="card-header">
-      <img class="avatar" :src="avatar" alt="Profile picture" />
+      <img
+        width="128"
+        height="128"
+        class="avatar"
+        :src="avatar"
+        alt="Profile picture"
+      />
     </div>
     <div class="card-content">
       <h1 class="name">{{ name }}</h1>
@@ -21,20 +41,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-defineProps<{
-  avatar: string;
-  name: string;
-  title: string;
-  description: string;
-  socialLinks: {
-    name: string;
-    url: string;
-    icon: string;
-  }[];
-}>();
-</script>
 
 <style scoped>
 .about-me-card {
@@ -56,8 +62,6 @@ defineProps<{
 }
 
 .avatar {
-  width: 7.5rem;
-  height: 7.5rem;
   border-radius: 50%;
   border: 4px solid #eee;
   animation: light 6s ease-in-out infinite;
@@ -116,7 +120,7 @@ defineProps<{
 }
 
 .social-link img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
 }
 </style>
